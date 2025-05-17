@@ -9,47 +9,42 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Almarai:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Custom styles to apply the selected fonts */
         body {
-            font-family: 'Almarai', sans-serif; /* Almarai for body text */
+            font-family: 'Almarai', sans-serif; 
             scroll-behavior: smooth;
         }
         h1, h2, h3, h4, h5, h6 {
-            font-family: 'Amiri', serif; /* Amiri for headings */
+            font-family: 'Amiri', serif; 
         }
-        /* Custom class for the gold color to ensure consistency */
-        .text-brand-gold {
-            color: #B89B5E;
-        }
-        .bg-brand-gold {
-            background-color: #B89B5E;
-        }
-        .border-brand-gold {
-            border-color: #B89B5E;
-        }
-        /* Custom class for the dark blue color */
-        .text-brand-dark-blue {
-            color: #1A2B3A;
-        }
-        .bg-brand-dark-blue {
-            background-color: #1A2B3A;
-        }
-        .logo-container {
-            background-color: #1A2B3A; /* Simulating the logo's original background */
-            padding: 20px;
-            display: inline-block;
-            border-radius: 8px;
-        }
+        .text-brand-gold { color: #B89B5E; }
+        .bg-brand-gold { background-color: #B89B5E; }
+        .border-brand-gold { border-color: #B89B5E; }
+        .text-brand-dark-blue { color: #1A2B3A; }
+        .bg-brand-dark-blue { background-color: #1A2B3A; }
+        
         .swatch {
             width: 100px;
             height: 100px;
-            border-radius: 0.5rem; /* Tailwind's rounded-lg */
+            border-radius: 0.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 8px;
+            font-size: 0.75rem; /* text-xs */
+            color: white; /* Default for dark swatches */
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
-        /* Updated font classes */
+        .swatch.light-text-needed { /* For light swatches needing dark text */
+            color: #1A2B3A;
+        }
+        .swatch-sm { /* Smaller swatch for tints/shades */
+            width: 80px;
+            height: 80px;
+        }
+
         .font-amiri { font-family: 'Amiri', serif; }
         .font-almarai { font-family: 'Almarai', sans-serif; }
 
-        /* Simple sidebar for navigation */
         .sidebar {
             position: fixed;
             top: 0;
@@ -60,7 +55,7 @@
             padding: 20px;
             border-left: 1px solid #e0e0e0;
             overflow-y: auto;
-            z-index: 10; /* Ensure sidebar is above content */
+            z-index: 10; 
         }
         .sidebar a {
             display: block;
@@ -73,10 +68,29 @@
             color: #B89B5E;
         }
         .content-area {
-            margin-right: 270px; /* Adjust based on sidebar width + padding */
+            margin-right: 270px; 
         }
 
-        /* Responsive adjustments */
+        .logo-display { /* General class for logo images */
+            max-width: 300px; 
+            height: auto;
+            display: block; 
+        }
+         .icon-display { /* For the standalone icon */
+            max-width: 150px; /* Default for icon */
+            height: auto;
+            display: block;
+        }
+        .logo-variant-container {
+            padding: 20px;
+            border-radius: 8px;
+            display: flex;
+            flex-direction: column; 
+            justify-content: center;
+            align-items: center;
+            min-height: 220px; /* Adjusted height for better visual */
+        }
+
         @media (max-width: 768px) {
             .sidebar {
                 position: static;
@@ -88,6 +102,12 @@
             .content-area {
                 margin-right: 0;
             }
+            .logo-display {
+                max-width: 220px; /* Adjusted for mobile */
+            }
+            .icon-display {
+                max-width: 100px; /* Adjusted for mobile */
+            }
         }
     </style>
 </head>
@@ -98,7 +118,11 @@
         <nav>
             <a href="#introduction">1. مقدمة</a>
             <a href="#logo">2. الشعار</a>
-            <a href="#logo-usage">   - إرشادات استخدام الشعار</a>
+            <a href="#primary-logo">   - الشعار الأساسي</a>
+            <a href="#logo-concept">   - مفهوم الشعار</a>
+            <a href="#brand-mark">   - أيقونة العلامة التجارية</a>
+            <a href="#logo-variants">   - نماذج الاستخدام</a>
+            <a href="#monochrome-usage">   - استخدام الشعار أحادي اللون</a>
             <a href="#logo-clearance">   - مساحة الأمان</a>
             <a href="#logo-min-size">   - الحد الأدنى للحجم</a>
             <a href="#logo-donts">   - الاستخدامات الخاطئة</a>
@@ -110,7 +134,7 @@
 
     <main class="content-area p-6 md:p-10">
         <header class="mb-12 text-center">
-            <img src="492962634_122093511716858451_3304078289163312285_n.jpg" alt="شعار مكتب الحكماء" class="w-48 h-auto mx-auto mb-4 rounded-lg shadow-md">
+            <img src="https://i.ibb.co/XG73DWy/logo-alhokamaa-transparent-light-background.png" alt="شعار مكتب الحكماء الكامل" class="logo-display mx-auto mb-4">
             <h1 class="text-4xl md:text-5xl font-bold font-amiri text-brand-dark-blue">دليل الهوية البصرية</h1>
             <p class="text-2xl font-amiri text-brand-gold">مكتب الحكماء</p>
         </header>
@@ -120,92 +144,152 @@
             <p class="text-lg leading-relaxed mb-3 font-almarai">
                 يمثل هذا الدليل المرجع الأساسي للهوية البصرية لمكتب الحكماء. تهدف هذه الإرشادات إلى ضمان تطبيق عناصر الهوية بشكل متناسق واحترافي عبر جميع المواد والمنصات، مما يعزز صورة المكتب ويعكس قيمه الأساسية المتمثلة في الخبرة، الموثوقية، والالتزام الشرعي.
             </p>
-            <p class="text-lg leading-relaxed font-almarai">
-                إن الالتزام بهذه الإرشادات يساهم في بناء هوية بصرية قوية ومميزة لمكتب الحكماء، تعبر عن الاحترافية والجدية في تقديم خدمات التدقيق الشرعي، احتساب الزكاة، والتحكيم الشرعي.
-            </p>
         </section>
 
         <section id="logo" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
             <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">2. الشعار</h2>
             
-            <div class="grid md:grid-cols-2 gap-8 items-center">
-                <div>
-                    <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-3">الشعار الأساسي</h3>
-                    <div class="logo-container inline-block shadow-md">
-                        <img src="492962634_122093511716858451_3304078289163312285_n.jpg" alt="الشعار الأساسي لمكتب الحكماء" class="w-64 h-auto">
-                    </div>
-                    <p class="mt-3 text-sm text-gray-600 font-almarai">الشعار الرسمي بالألوان الكاملة، يستخدم في معظم التطبيقات.</p>
-                </div>
-                <div>
-                    <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-3">عناصر الشعار</h3>
-                     <p class="text-lg leading-relaxed mb-2 font-almarai">يتكون شعار مكتب الحكماء من:</p>
-                    <ul class="list-disc list-inside text-lg leading-relaxed font-almarai">
-                        <li>رمز تجريدي يجمع بين شكلي سقف أو مأوى، يرمز للحماية والاحتواء، مع تداخل يوحي بالتوازن والإنصاف.</li>
-                        <li>اسم المكتب "مكتب الحكماء" بخط عربي واضح وقوي.</li>
-                        <li>استخدام مدروس للألوان يعكس الثقة (الأزرق الداكن)، النقاء والوضوح (الأبيض)، والحكمة والقيمة (الذهبي).</li>
-                    </ul>
-                </div>
-            </div>
-
-            <div id="logo-usage" class="mt-10">
-                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4 pt-4 border-t border-gray-300">إرشادات استخدام الشعار</h3>
-                <p class="text-lg leading-relaxed mb-4 font-almarai">
-                    للحفاظ على قوة وتأثير الشعار، يجب استخدامه وفقًا للإرشادات التالية. يُفضل دائمًا استخدام الشعار الأساسي.
-                </p>
-                <h4 class="text-xl font-amiri font-semibold text-brand-dark-blue my-3">الشعار على خلفيات مختلفة:</h4>
-                <div class="grid md:grid-cols-2 gap-6">
-                    <div class="p-4 border rounded-lg">
-                        <p class="font-semibold mb-2 font-amiri">على خلفية فاتحة (بيضاء):</p>
-                        <div class="bg-white p-3 inline-block rounded shadow">
-                           <img src="492962634_122093511716858451_3304078289163312285_n.jpg" alt="الشعار على خلفية بيضاء" class="w-40 h-auto">
+            <div id="primary-logo" class="mb-10">
+                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-3">الشعار الأساسي (الكامل)</h3>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="bg-gray-200 p-4 inline-block rounded-lg shadow-md">
+                            <img src="https://i.ibb.co/XG73DWy/logo-alhokamaa-transparent-light-background.png" alt="الشعار الأساسي لمكتب الحكماء (نص أزرق داكن)" class="logo-display">
                         </div>
-                         <p class="mt-2 text-xs font-almarai">يستخدم الشعار الأصلي كما هو.</p>
+                        <p class="mt-3 text-sm text-gray-600 font-almarai">الشعار الرسمي الكامل (الأيقونة + النص) بخلفية شفافة. هذا هو الشعار المفضل للاستخدام على الخلفيات الفاتحة.</p>
                     </div>
-                    <div class="p-4 border rounded-lg bg-brand-dark-blue text-white">
-                        <p class="font-semibold mb-2 font-amiri">على خلفية داكنة (لون العلامة التجارية الأزرق):</p>
-                         <img src="492962634_122093511716858451_3304078289163312285_n.jpg" alt="الشعار على خلفية داكنة" class="w-40 h-auto">
-                        <p class="mt-2 text-xs font-almarai">الشعار مصمم ليعمل جيدًا على خلفيته الأصلية الداكنة.</p>
+                    <div>
+                        <h4 class="text-xl font-amiri font-semibold text-brand-dark-blue mb-2">عناصر الشعار الأساسي:</h4>
+                        <ul class="list-disc list-inside text-lg leading-relaxed font-almarai">
+                            <li>أيقونة خطية فنية مميزة للعلامة التجارية، مستوحاة من جماليات الخط العربي.</li>
+                            <li>اسم المكتب "مكتب الحكماء" مكتوب بخط عربي أنيق ومتوازن بجانب الأيقونة.</li>
+                            <li>استخدام متناغم لألوان العلامة التجارية (الأزرق الداكن والذهبي) ليعكس الفخامة والثقة.</li>
+                            <li>يعكس التصميم العام الأصالة، الخبرة، والاحترافية التي يتميز بها المكتب.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
 
-            <div id="logo-clearance" class="mt-10">
-                 <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4 pt-4 border-t border-gray-300">مساحة الأمان (Clear Space)</h3>
+            <div id="logo-concept" class="mb-10 pt-6 border-t border-gray-300">
+                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-3">مفهوم الشعار</h3>
+                <p class="text-lg leading-relaxed font-almarai mb-2">
+                    يستلهم شعار "مكتب الحكماء" جوهره من فن الخط العربي الأصيل، حيث تم تصميم الأيقونة واسم المكتب كقطعة فنية متكاملة تعبر عن قيم الحكمة، الخبرة، والموثوقية.
+                </p>
+                <ul class="list-disc list-inside text-lg leading-relaxed font-almarai space-y-1">
+                    <li><strong>الأيقونة الخطية:</strong> تمثل تجسيدًا فنيًا لكلمة "الحكماء" أو جزء منها، بأسلوب انسيابي يجمع بين التقليد والحداثة. ترمز إلى البصيرة العميقة والأسس الراسخة للمعرفة الشرعية.</li>
+                    <li><strong>النص المصاحب:</strong> كلمة "مكتب الحكماء" كتبت بخط واضح وأنيق، يتكامل مع الأيقونة ليشكل وحدة بصرية متوازنة، مؤكدًا على الهوية المؤسسية الاحترافية.</li>
+                    <li><strong>الألوان:</strong> يعكس اللون الذهبي القيمة والحكمة، بينما يضفي اللون الأزرق الداكن شعوراً بالثقة والعمق. اللون الأبيض (أو الفاتح في الخلفية) يرمز إلى الوضوح والشفافية.</li>
+                    <li><strong>الدلالة العامة:</strong> يهدف الشعار إلى ترك انطباع بالفخامة، الأصالة، والخبرة العريقة، مما يجعله علامة مميزة لـ "مكتب الحكماء" كمرجعية موثوقة في الاستشارات الشرعية.</li>
+                </ul>
+            </div>
+
+            <div id="brand-mark" class="mb-10 pt-6 border-t border-gray-300">
+                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-3">أيقونة العلامة التجارية (الرمز)</h3>
+                 <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <div class="bg-gray-200 p-4 inline-block rounded-lg shadow-md">
+                            <img src="https://i.ibb.co/wF7rLbkG/icon-alhokamaa-transparent-background.png" alt="أيقونة العلامة التجارية لمكتب الحكماء" class="icon-display">
+                        </div>
+                        <p class="mt-3 text-sm text-gray-600 font-almarai">الأيقونة الخطية المستقلة. يمكن استخدامها في المساحات المحدودة أو كتوقيع بصري ثانوي.</p>
+                    </div>
+                    <div>
+                        <h4 class="text-xl font-amiri font-semibold text-brand-dark-blue mb-2">استخدامات الأيقونة:</h4>
+                        <ul class="list-disc list-inside text-lg leading-relaxed font-almarai">
+                            <li>كصورة مصغرة (Favicon) للموقع الإلكتروني.</li>
+                            <li>في تطبيقات وسائل التواصل الاجتماعي كصورة ملف شخصي.</li>
+                            <li>كعنصر زخرفي أو ختم في بعض المواد المطبوعة.</li>
+                            <li>عندما تكون المساحة محدودة جداً ولا تسمح بعرض الشعار الكامل.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="logo-variants" class="mt-10 pt-6 border-t border-gray-300">
+                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4">نماذج استخدام الشعار الأساسي</h3>
                 <p class="text-lg leading-relaxed mb-4 font-almarai">
-                    يجب دائمًا ترك مساحة فارغة كافية حول الشعار لضمان وضوحه وبروزه. أقل مساحة أمان موصى بها تعادل ارتفاع حرف "الميم" في كلمة "مكتب" من جميع جوانب الشعار.
+                    الشعار الأساسي مصمم بخلفية شفافة، مما يجعله مرنًا للاستخدام على خلفيات متنوعة.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="logo-variant-container bg-white border rounded-lg">
+                        <p class="font-semibold mb-3 font-amiri text-center text-brand-dark-blue">على خلفية فاتحة (بيضاء):</p>
+                        <img src="https://i.ibb.co/XG73DWy/logo-alhokamaa-transparent-light-background.png" alt="الشعار على خلفية بيضاء (نص أزرق داكن)" class="logo-display mx-auto">
+                        <p class="mt-2 text-xs font-almarai text-center text-gray-600">يستخدم الشعار ذو النص الأزرق الداكن والأيقونة الذهبية.</p>
+                    </div>
+                    <div class="logo-variant-container bg-brand-dark-blue border rounded-lg">
+                        <p class="font-semibold mb-3 font-amiri text-center text-white">على خلفية داكنة (لون العلامة التجارية الأزرق):</p>
+                        <img src="https://i.ibb.co/RpryZZ3Y/logo-alhokamaa-white-transparent-background.png" alt="الشعار على خلفية داكنة (نص أبيض)" class="logo-display mx-auto">
+                        <p class="mt-2 text-xs font-almarai text-center text-gray-300">
+                           يستخدم الشعار ذو النص الأبيض والأيقونة الذهبية.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div id="monochrome-usage" class="mt-10 pt-6 border-t border-gray-300">
+                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4">استخدام الشعار أحادي اللون</h3>
+                <p class="text-lg leading-relaxed mb-4 font-almarai">
+                    في بعض الحالات، قد يتطلب الأمر استخدام نسخة أحادية اللون من الشعار (أبيض بالكامل أو أسود بالكامل) لضمان الوضوح أو لتلبية متطلبات طباعية معينة.
+                </p>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="logo-variant-container bg-brand-gold border rounded-lg">
+                        <p class="font-semibold mb-3 font-amiri text-center text-brand-dark-blue">الشعار الأبيض بالكامل:</p>
+                        <img src="https://i.ibb.co/RpryZZ3Y/logo-alhokamaa-white-transparent-background.png" alt="الشعار الأبيض بالكامل" class="logo-display mx-auto">
+                        <p class="mt-2 text-xs font-almarai text-center text-brand-dark-blue">
+                            يستخدم على خلفيات داكنة أو ملونة بشدة. (ملاحظة: هذه النسخة تحتوي على الذهبي، النسخة البيضاء بالكامل ستكون جميع عناصرها بيضاء).
+                        </p>
+                    </div>
+                    <div class="logo-variant-container bg-gray-200 border rounded-lg">
+                        <p class="font-semibold mb-3 font-amiri text-center text-brand-dark-blue">الشعار الأسود بالكامل:</p>
+                        <img src="https://i.ibb.co/TDg3M5GX/logo-alhokamaa-black-transparent-background.png" alt="الشعار الأسود بالكامل" class="logo-display mx-auto">
+                        <p class="mt-2 text-xs font-almarai text-center text-gray-700">
+                           يستخدم على خلفيات فاتحة جدًا، أو في تطبيقات الطباعة أحادية اللون.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <div id="logo-clearance" class="mt-10 pt-6 border-t border-gray-300">
+                 <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4">مساحة الأمان (Clear Space)</h3>
+                <p class="text-lg leading-relaxed mb-4 font-almarai">
+                    يجب دائمًا ترك مساحة فارغة كافية حول الشعار الأساسي لضمان وضوحه وبروزه. أقل مساحة أمان موصى بها تعادل ارتفاع كلمة "مكتب" في الشعار من جميع جوانبه.
                 </p>
                 <div class="border-2 border-dashed border-gray-400 p-8 my-4 text-center bg-gray-50 rounded-lg">
-                    <div class="logo-container inline-block">
-                         <img src="492962634_122093511716858451_3304078289163312285_n.jpg" alt="مساحة الأمان للشعار" class="w-48 h-auto">
-                    </div>
+                    <img src="https://i.ibb.co/XG73DWy/logo-alhokamaa-transparent-light-background.png" alt="مساحة الأمان للشعار" class="logo-display mx-auto" style="max-width:220px;">
                     <p class="text-sm text-gray-600 mt-2 font-almarai">تخيل مساحة أمان حول الشعار هنا.</p>
                 </div>
             </div>
 
-            <div id="logo-min-size" class="mt-10">
-                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4 pt-4 border-t border-gray-300">الحد الأدنى للحجم (Minimum Size)</h3>
+            <div id="logo-min-size" class="mt-10 pt-6 border-t border-gray-300">
+                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4">الحد الأدنى للحجم (Minimum Size)</h3>
                 <p class="text-lg leading-relaxed mb-2 font-almarai">
-                    لضمان وضوح الشعار وقراءته، يجب عدم تصغيره عن الأحجام التالية:
+                    لضمان وضوح الشعار الكامل وقراءته، يجب عدم تصغيره عن الأحجام التالية (يقاس عرض الشعار الكلي):
                 </p>
                 <ul class="list-disc list-inside text-lg leading-relaxed font-almarai">
-                    <li><strong>للمواد المطبوعة:</strong> عرض 2.5 سم (25 مم).</li>
-                    <li><strong>للاستخدام الرقمي (الويب):</strong> عرض 100 بكسل.</li>
+                    <li><strong>للمواد المطبوعة:</strong> عرض 3.5 سم (35 مم).</li>
+                    <li><strong>للاستخدام الرقمي (الويب):</strong> عرض 180 بكسل.</li>
+                </ul>
+                <p class="text-lg leading-relaxed mb-2 font-almarai mt-3">
+                    بالنسبة لأيقونة العلامة التجارية وحدها:
+                </p>
+                 <ul class="list-disc list-inside text-lg leading-relaxed font-almarai">
+                    <li><strong>للمواد المطبوعة:</strong> عرض 1.2 سم (12 مم).</li>
+                    <li><strong>للاستخدام الرقمي (الويب):</strong> عرض 50 بكسل.</li>
                 </ul>
             </div>
 
-            <div id="logo-donts" class="mt-10">
-                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4 pt-4 border-t border-gray-300">الاستخدامات الخاطئة للشعار (Don'ts)</h3>
-                <p class="text-lg leading-relaxed mb-4 font-almarai">
-                    للحفاظ على سلامة الهوية البصرية، يرجى تجنب الاستخدامات التالية للشعار:
-                </p>
-                <ul class="list-disc list-inside text-lg leading-relaxed space-y-2 font-almarai">
-                    <li>لا تقم بتغيير ألوان الشعار.</li>
+            <div id="logo-donts" class="mt-10 pt-6 border-t border-gray-300">
+                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4">الاستخدامات الخاطئة للشعار (Don'ts)</h3>
+                 <ul class="list-disc list-inside text-lg leading-relaxed space-y-2 font-almarai">
+                    <li>لا تقم بتغيير ألوان الشعار خارج النسخ الرسمية المتوفرة.</li>
+                    <li>لا تقم بتغيير الخطوط المستخدمة في الشعار.</li>
                     <li>لا تقم بتمديد أو ضغط الشعار أو تغيير نسب أبعاده.</li>
-                    <li>لا تقم بإضافة ظلال أو تأثيرات ثلاثية الأبعاد أو أي مؤثرات بصرية أخرى للشعار.</li>
-                    <li>لا تقم بتدوير الشعار.</li>
-                    <li>لا تستخدم الشعار على خلفيات معقدة أو صور تقلل من وضوحه.</li>
-                    <li>لا تقم بقص أجزاء من الشعار أو استخدام عناصره بشكل منفصل دون موافقة.</li>
-                    <li>لا تقم بإعادة رسم الشعار أو استخدام نسخة منخفضة الجودة.</li>
+                    <li>لا تقم بإعادة ترتيب عناصر الشعار (الأيقونة والنص) بشكل مختلف.</li>
+                    <li>لا تقم بإضافة ظلال، حدود، أو تأثيرات بصرية أخرى للشعار.</li>
+                    <li>لا تقم بتدوير الشعار بشكل غير مبرر.</li>
+                    <li>لا تستخدم الشعار على خلفيات تجعل قراءته صعبة أو تقلل من وضوحه.</li>
+                    <li>تجنب وضع الشعار فوق صور معقدة بصريًا ما لم يتم ضمان تباين كافٍ.</li>
                 </ul>
             </div>
         </section>
@@ -213,124 +297,138 @@
         <section id="colors" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
             <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">3. الألوان</h2>
             <p class="text-lg leading-relaxed mb-6 font-almarai">
-                تعتبر الألوان جزءًا حيويًا من هوية مكتب الحكماء. تم اختيارها لتعكس الثقة، الحكمة، والوضوح.
+               تم اختيار لوحة الألوان لتعكس الثقة، الحكمة، والوضوح، مع توفير مرونة كافية للاستخدامات المختلفة في الموقع الإلكتروني والمواد الأخرى.
             </p>
-            <div class="grid md:grid-cols-3 gap-6 text-center">
+
+            <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4">الألوان الأساسية (Primary Colors)</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-x-6 gap-y-8 text-center mb-8">
                 <div>
-                    <h4 class="text-xl font-amiri font-semibold text-brand-dark-blue mb-2">الأزرق الداكن (أساسي)</h4>
-                    <div class="swatch bg-brand-dark-blue mx-auto shadow-md"></div>
-                    <p class="mt-2 font-mono text-sm">HEX: #1A2B3A</p>
-                    <p class="text-xs">CMYK: (مثال تقريبي) 87, 65, 45, 60</p>
-                    <p class="text-xs">RGB: 26, 43, 58</p>
-                    <p class="mt-1 text-sm font-almarai">يرمز للثقة، الاحترافية، السلطة.</p>
+                    <h4 class="text-xl font-amiri text-brand-dark-blue mb-2">الأزرق الداكن</h4>
+                    <div class="swatch bg-brand-dark-blue mx-auto"><span>#1A2B3A</span></div>
+                    <p class="mt-1 text-sm font-almarai">لون أساسي للنص والخلفيات الداعمة، يرمز للثقة والاحترافية.</p>
                 </div>
                 <div>
-                    <h4 class="text-xl font-amiri font-semibold text-brand-dark-blue mb-2">الذهبي / المغرة (أساسي/ثانوي)</h4>
-                    <div class="swatch bg-brand-gold mx-auto shadow-md"></div>
-                    <p class="mt-2 font-mono text-sm">HEX: #B89B5E</p>
-                    <p class="text-xs">CMYK: (مثال تقريبي) 25, 35, 65, 10</p>
-                    <p class="text-xs">RGB: 184, 155, 94</p>
-                    <p class="mt-1 text-sm font-almarai">يرمز للحكمة، القيمة، الجودة.</p>
+                    <h4 class="text-xl font-amiri text-brand-dark-blue mb-2">الذهبي / المغرة</h4>
+                    <div class="swatch bg-brand-gold mx-auto"><span>#B89B5E</span></div>
+                    <p class="mt-1 text-sm font-almarai">لون أساسي للأيقونة وعناصر الإبراز، يرمز للحكمة والقيمة.</p>
                 </div>
                 <div>
-                    <h4 class="text-xl font-amiri font-semibold text-brand-dark-blue mb-2">الأبيض (أساسي/محايد)</h4>
-                    <div class="swatch bg-white border border-gray-300 mx-auto shadow-md"></div>
-                    <p class="mt-2 font-mono text-sm">HEX: #FFFFFF</p>
-                    <p class="text-xs">CMYK: 0, 0, 0, 0</p>
-                    <p class="text-xs">RGB: 255, 255, 255</p>
-                    <p class="mt-1 text-sm font-almarai">يرمز للنقاء، الوضوح، البساطة.</p>
+                    <h4 class="text-xl font-amiri text-brand-dark-blue mb-2">الأبيض</h4>
+                    <div class="swatch bg-white border border-gray-300 mx-auto light-text-needed"><span>#FFFFFF</span></div>
+                    <p class="mt-1 text-sm font-almarai">للنص على الخلفيات الداكنة، وللخلفيات الأساسية، يرمز للنقاء والوضوح.</p>
                 </div>
             </div>
-             <div class="mt-8">
-                <h4 class="text-xl font-amiri font-semibold text-brand-dark-blue mb-2">الألوان المحايدة الإضافية (للاستخدام المساعد)</h4>
-                 <div class="grid md:grid-cols-3 gap-6 text-center">
+
+            <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4 pt-4 border-t border-gray-200">الألوان الثانوية والمساعدة (Secondary & Accent Colors)</h3>
+             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 text-center mb-8">
+                <div>
+                    <h4 class="text-lg font-amiri text-brand-dark-blue mb-2">أزرق داكن (درجة أفتح)</h4>
+                    <div class="swatch mx-auto" style="background-color: #2C3E50;"><span>#2C3E50</span></div>
+                    <p class="mt-1 text-sm font-almarai">لخلفيات الأقسام أو عناصر واجهة مستخدم ثانوية.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-amiri text-brand-dark-blue mb-2">ذهبي (درجة أغمق)</h4>
+                    <div class="swatch mx-auto" style="background-color: #A48A53;"><span>#A48A53</span></div>
+                    <p class="mt-1 text-sm font-almarai">للحواف أو حالات التمرير (hover).</p>
+                </div>
+                 <div>
+                    <h4 class="text-lg font-amiri text-brand-dark-blue mb-2">ذهبي (درجة أفتح/بيج)</h4>
+                    <div class="swatch mx-auto light-text-needed" style="background-color: #D9C6A5;"><span>#D9C6A5</span></div>
+                    <p class="mt-1 text-sm font-almarai">لخلفيات ناعمة أو بطاقات لإضافة دفء.</p>
+                </div>
+                <div>
+                    <h4 class="text-xl font-amiri text-brand-dark-blue mb-2">الأسود (للشعار الأحادي)</h4>
+                    <div class="swatch bg-black mx-auto"><span>#000000</span></div>
+                    <p class="mt-1 text-sm font-almarai">يستخدم في نسخة الشعار أحادية اللون (الأسود).</p>
+                </div>
+            </div>
+
+            <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4 pt-4 border-t border-gray-200">الألوان المحايدة (Neutral Colors)</h3>
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-x-6 gap-y-8 text-center">
+                <div>
+                    <h4 class="text-lg font-amiri text-brand-dark-blue mb-2">رمادي داكن جداً (للنص)</h4>
+                    <div class="swatch mx-auto" style="background-color: #333333;"><span>#333333</span></div>
+                    <p class="mt-1 text-sm font-almarai">بديل للأسود الصريح في النصوص الطويلة.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-amiri text-brand-dark-blue mb-2">رمادي متوسط</h4>
+                    <div class="swatch mx-auto" style="background-color: #6B7280;"><span>#6B7280</span></div>
+                    <p class="mt-1 text-sm font-almarai">للنصوص الفرعية، الأيقونات الثانوية، أو الحدود.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-amiri text-brand-dark-blue mb-2">رمادي فاتح</h4>
+                    <div class="swatch mx-auto light-text-needed" style="background-color: #E5E7EB;"><span>#E5E7EB</span></div>
+                    <p class="mt-1 text-sm font-almarai">لخلفيات الأقسام، الفواصل، أو البطاقات.</p>
+                </div>
+                <div>
+                    <h4 class="text-lg font-amiri text-brand-dark-blue mb-2">رمادي فاتح جداً (Off-White)</h4>
+                    <div class="swatch mx-auto light-text-needed" style="background-color: #F8F9FA;"><span>#F8F9FA</span></div>
+                    <p class="mt-1 text-sm font-almarai">كخلفية أساسية بديلة للأبيض الصريح.</p>
+                </div>
+            </div>
+
+            <div class="mt-8 p-4 bg-blue-50 rounded-lg">
+                 <h4 class="text-xl font-amiri text-brand-dark-blue mb-2">ألوان التنبيهات والحالات (للموقع)</h4>
+                 <p class="text-sm font-almarai mb-3">
+                    هذه الألوان تستخدم لعناصر واجهة المستخدم مثل رسائل النجاح، الخطأ، التحذير، والمعلومات. يجب اختيارها لتكون واضحة ومتناسقة مع الهوية العامة دون أن تكون جزءاً من الألوان الأساسية للعلامة التجارية.
+                 </p>
+                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 text-center">
                     <div>
-                        <h5 class="text-lg font-amiri font-semibold text-gray-700 mb-1">رمادي فاتح</h5>
-                        <div class="swatch bg-gray-200 mx-auto shadow-md"></div>
-                        <p class="mt-2 font-mono text-sm">HEX: #E5E7EB</p>
-                        <p class="mt-1 text-sm font-almarai">لخلفيات النصوص أو الفواصل.</p>
+                        <div class="h-16 rounded flex items-center justify-center text-white" style="background-color: #28a745;">نجاح</div>
+                        <p class="text-xs mt-1">Success: ~#28a745</p>
                     </div>
                     <div>
-                        <h5 class="text-lg font-amiri font-semibold text-gray-700 mb-1">رمادي متوسط</h5>
-                        <div class="swatch bg-gray-500 mx-auto shadow-md"></div>
-                        <p class="mt-2 font-mono text-sm">HEX: #6B7280</p>
-                        <p class="mt-1 text-sm font-almarai">للنصوص الفرعية أو الأقل أهمية.</p>
+                        <div class="h-16 rounded flex items-center justify-center text-white" style="background-color: #dc3545;">خطأ</div>
+                        <p class="text-xs mt-1">Error: ~#dc3545</p>
+                    </div>
+                    <div>
+                        <div class="h-16 rounded flex items-center justify-center text-brand-dark-blue" style="background-color: #ffc107;">تحذير</div>
+                        <p class="text-xs mt-1">Warning: ~#ffc107</p>
+                    </div>
+                    <div>
+                        <div class="h-16 rounded flex items-center justify-center text-white" style="background-color: #17a2b8;">معلومات</div>
+                        <p class="text-xs mt-1">Info: ~#17a2b8</p>
                     </div>
                  </div>
             </div>
+
         </section>
 
         <section id="typography" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
             <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">4. الخطوط</h2>
             <p class="text-lg leading-relaxed mb-6 font-almarai">
-                تم اختيار خطوط تجمع بين الأصالة والحداثة، لتعكس الطابع الموثوق والاحترافي لمكتب الحكماء، مع ضمان تجربة قراءة متميزة باللغة العربية.
+                الشعار نفسه يستخدم تصميمًا خطيًا فريدًا. الخطوط التالية هي للاستخدام في المواد النصية الأخرى المصاحبة للهوية.
             </p>
-            
             <div class="grid md:grid-cols-2 gap-8 mb-8">
                 <div>
                     <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-2">الخط الأساسي للعناوين (Amiri)</h3>
                     <p class="font-amiri text-4xl font-bold mb-1">مكتب الحكماء (Bold)</p>
-                    <p class="font-amiri text-3xl mb-1">مكتب الحكماء (Regular)</p>
-                    <p class="mt-2 text-sm font-almarai">يستخدم للعناوين الرئيسية والفرعية، يتميز خط "أميري" بأصالته المستمدة من خط النسخ التقليدي، مع لمسة حديثة تجعله مناسبًا للعصر الرقمي. يضفي على العناوين طابع الفخامة والتراث.</p>
-                    <a href="https://fonts.google.com/specimen/Amiri" target="_blank" class="text-brand-gold hover:underline text-sm">رابط خط Amiri على Google Fonts</a>
+                    <a href="https://fonts.google.com/specimen/Amiri" target="_blank" class="text-brand-gold hover:underline text-sm">رابط خط Amiri</a>
                 </div>
                 <div>
                     <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-2">الخط الأساسي للنصوص (Almarai)</h3>
-                    <p class="font-almarai text-lg mb-1">
-                        هذا مثال على نص أساسي يستخدم خط Almarai. خط "المراعي" هو خط عربي حديث مصمم ليكون واضحًا وسهل القراءة في مختلف الأحجام، مع الحفاظ على جماليات الخط العربي الأصيل. يوفر تجربة قراءة مريحة. (Regular)
-                    </p>
-                     <p class="font-almarai text-lg font-bold mb-1">
-                        هذا مثال على نص أساسي بخط Almarai. (Bold)
-                    </p>
-                    <p class="mt-2 text-sm font-almarai">يستخدم للنصوص الأساسية والفقرات لضمان أقصى درجات الوضوح وسهولة القراءة، مع لمسة عصرية وأنيقة.</p>
-                     <a href="https://fonts.google.com/specimen/Almarai" target="_blank" class="text-brand-gold hover:underline text-sm">رابط خط Almarai على Google Fonts</a>
-                </div>
-            </div>
-
-            <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4 pt-4 border-t border-gray-300">أمثلة على تدرج الخطوط:</h3>
-            <div class="space-y-4">
-                <div>
-                    <h1 class="font-amiri text-4xl font-bold text-brand-dark-blue">عنوان رئيسي H1 (Amiri Bold)</h1>
-                    <p class="font-almarai text-lg mt-1">نص عادي يتبع العنوان الرئيسي، يشرح الفكرة العامة.</p>
-                </div>
-                <div>
-                    <h2 class="font-amiri text-3xl font-bold text-brand-dark-blue">عنوان فرعي H2 (Amiri Bold)</h2>
-                     <p class="font-almarai text-base mt-1">نص عادي يتبع العنوان الفرعي، يقدم تفاصيل إضافية.</p>
-                </div>
-                <div>
-                    <h3 class="font-amiri text-2xl text-brand-dark-blue">عنوان H3 (Amiri Regular)</h3>
-                    <p class="font-almarai text-base mt-1">فقرة نصية تحتوي على معلومات داعمة.</p>
-                </div>
-                <div>
-                    <p class="font-almarai text-base leading-relaxed">
-                        <strong>النص الأساسي (Body Text):</strong> يجب أن يكون حجم الخط للنص الأساسي مريحًا للقراءة، عادة ما بين 16-18 بكسل على الويب. يجب أن يكون تباعد الأسطر (line-height) حوالي 1.6 إلى 1.8 لضمان سهولة القراءة.
-                    </p>
+                    <p class="font-almarai text-lg mb-1">هذا مثال على نص أساسي بخط المراعي.</p>
+                     <a href="https://fonts.google.com/specimen/Almarai" target="_blank" class="text-brand-gold hover:underline text-sm">رابط خط Almarai</a>
                 </div>
             </div>
         </section>
 
         <section id="tone-of-voice" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
-            <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">5. نبرة الصوت (Tone of Voice)</h2>
-            <p class="text-lg leading-relaxed mb-3 font-almarai">
-                يجب أن تعكس نبرة الصوت المستخدمة في جميع اتصالات مكتب الحكماء القيم الأساسية للمكتب.
-            </p>
+            <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">5. نبرة الصوت</h2>
             <ul class="list-disc list-inside text-lg leading-relaxed space-y-2 font-almarai">
-                <li><strong>احترافية وموثوقة:</strong> استخدام لغة دقيقة وواضحة تعكس الخبرة والكفاءة.</li>
-                <li><strong>سلطة معرفية:</strong> إظهار الفهم العميق للمبادئ الشرعية وتطبيقاتها.</li>
-                <li><strong>واضحة وموجزة:</strong> تجنب المصطلحات المعقدة بشكل مفرط، مع شرح أي مصطلحات فنية ضرورية.</li>
-                <li><strong>محترمة ومتعاطفة:</strong> خاصة عند التعامل مع مسائل التحكيم أو استشارات العملاء الحساسة.</li>
-                <li><strong>إيجابية وبناءة:</strong> التركيز على تقديم الحلول والمساعدة.</li>
+                <li><strong>احترافية وموثوقة.</strong></li>
+                <li><strong>سلطة معرفية.</strong></li>
+                <li><strong>واضحة وموجزة.</strong></li>
             </ul>
         </section>
 
         <footer class="text-center mt-12 pt-6 border-t border-gray-300">
             <p class="text-sm text-gray-600 font-almarai">&copy; <span id="currentYear"></span> مكتب الحكماء. جميع الحقوق محفوظة.</p>
-            <p class="text-xs text-gray-500 mt-1 font-almarai">دليل الهوية البصرية - الإصدار 1.0</p>
+            <p class="text-xs text-gray-500 mt-1 font-almarai">دليل الهوية البصرية - الإصدار 1.5 (مُحدَّث بلوحة ألوان موسعة)</p>
         </footer>
     </main>
 
     <script>
-        // Set current year in footer
         document.getElementById('currentYear').textContent = new Date().getFullYear();
     </script>
 </body>
