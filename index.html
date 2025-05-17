@@ -71,13 +71,13 @@
             margin-right: 270px; 
         }
 
-        .logo-display { /* General class for logo images */
+        .logo-display { 
             max-width: 300px; 
             height: auto;
             display: block; 
         }
-         .icon-display { /* For the standalone icon */
-            max-width: 150px; /* Default for icon */
+         .icon-display { 
+            max-width: 150px; 
             height: auto;
             display: block;
         }
@@ -88,7 +88,16 @@
             flex-direction: column; 
             justify-content: center;
             align-items: center;
-            min-height: 220px; /* Adjusted height for better visual */
+            min-height: 220px; 
+        }
+        .pattern-sample {
+            width: 100%;
+            max-width: 300px; /* Max width for sample */
+            height: 200px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            margin: 10px auto; /* Centering the sample */
+            overflow: hidden; /* To show tiling effect if SVG is small */
         }
 
         @media (max-width: 768px) {
@@ -103,10 +112,10 @@
                 margin-right: 0;
             }
             .logo-display {
-                max-width: 220px; /* Adjusted for mobile */
+                max-width: 220px; 
             }
             .icon-display {
-                max-width: 100px; /* Adjusted for mobile */
+                max-width: 100px; 
             }
         }
     </style>
@@ -128,7 +137,8 @@
             <a href="#logo-donts">   - الاستخدامات الخاطئة</a>
             <a href="#colors">3. الألوان</a>
             <a href="#typography">4. الخطوط</a>
-            <a href="#tone-of-voice">5. نبرة الصوت</a>
+            <a href="#patterns">5. الأنماط الرسومية</a>
+            <a href="#tone-of-voice">6. نبرة الصوت</a>
         </nav>
     </aside>
 
@@ -234,9 +244,9 @@
                 <div class="grid md:grid-cols-2 gap-6">
                     <div class="logo-variant-container bg-brand-gold border rounded-lg">
                         <p class="font-semibold mb-3 font-amiri text-center text-brand-dark-blue">الشعار الأبيض بالكامل:</p>
-                        <img src="https://i.ibb.co/RpryZZ3Y/logo-alhokamaa-white-transparent-background.png" alt="الشعار الأبيض بالكامل" class="logo-display mx-auto">
+                        <img src="https://i.ibb.co/RpryZZ3Y/logo-alhokamaa-white-transparent-background.png" alt="الشعار الأبيض بالكامل" class="logo-display mx-auto" style="filter: grayscale(100%) brightness(0) invert(1);">
                         <p class="mt-2 text-xs font-almarai text-center text-brand-dark-blue">
-                            يستخدم على خلفيات داكنة أو ملونة بشدة. (ملاحظة: هذه النسخة تحتوي على الذهبي، النسخة البيضاء بالكامل ستكون جميع عناصرها بيضاء).
+                            يستخدم على خلفيات داكنة أو ملونة بشدة. (مثال باستخدام فلتر CSS لتحويل الشعار المعروض إلى أبيض بالكامل للتوضيح).
                         </p>
                     </div>
                     <div class="logo-variant-container bg-gray-200 border rounded-lg">
@@ -391,9 +401,8 @@
                     </div>
                  </div>
             </div>
-
         </section>
-
+        
         <section id="typography" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
             <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">4. الخطوط</h2>
             <p class="text-lg leading-relaxed mb-6 font-almarai">
@@ -413,8 +422,89 @@
             </div>
         </section>
 
+        <section id="patterns" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
+            <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">5. الأنماط الرسومية (Brand Patterns)</h2>
+            <p class="text-lg leading-relaxed mb-6 font-almarai">
+                يمكن استخدام الأنماط الرسومية لإضافة عمق بصري وتعزيز الهوية في مختلف التطبيقات مثل خلفيات الموقع، المواد المطبوعة، أو العروض التقديمية. يجب استخدامها بشكل مدروس بحيث لا تطغى على المحتوى الرئيسي.
+            </p>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-3">نمط النجمة الهندسية (Geometric Star Pattern)</h3>
+                    <p class="text-base leading-relaxed font-almarai mb-3">
+                        نمط مستوحى من الزخارف الإسلامية الهندسية، يعتمد على تكرار وحدة نجمية مبسطة. يرمز إلى النظام، الدقة، والتراث.
+                    </p>
+                    <div class="pattern-sample bg-brand-dark-blue">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="starPatternDark" patternUnits="userSpaceOnUse" width="80" height="80" patternTransform="scale(0.8)">
+                                    <path d="M40 0 L45 35 L80 40 L45 45 L40 80 L35 45 L0 40 L35 35 Z" fill="rgba(184, 155, 94, 0.1)" /> 
+                                    <circle cx="40" cy="40" r="3" fill="rgba(184, 155, 94, 0.2)"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#starPatternDark)" />
+                        </svg>
+                    </div>
+                    <p class="text-xs font-almarai text-center mt-1">مثال: نمط ذهبي خفيف على خلفية زرقاء داكنة.</p>
+                     <div class="pattern-sample bg-gray-100 mt-4">
+                        <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="starPatternLight" patternUnits="userSpaceOnUse" width="60" height="60" patternTransform="scale(1)">
+                                     <path d="M30 5 L33.5 26.5 L55 30 L33.5 33.5 L30 55 L26.5 33.5 L5 30 L26.5 26.5 Z" fill="rgba(26, 43, 58, 0.07)" />
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#starPatternLight)" />
+                        </svg>
+                    </div>
+                    <p class="text-xs font-almarai text-center mt-1">مثال: نمط أزرق داكن خفيف على خلفية فاتحة.</p>
+                </div>
+
+                <div>
+                    <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-3">نمط الخطوط المتداخلة (Interlocking Lines)</h3>
+                     <p class="text-base leading-relaxed font-almarai mb-3">
+                        نمط يعتمد على خطوط انسيابية ومتداخلة تشكل تكويناً زخرفياً تجريدياً. يرمز إلى الترابط، الاستمرارية، والحلول المتكاملة.
+                    </p>
+                    <div class="pattern-sample bg-brand-gold">
+                         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="linePatternGold" patternUnits="userSpaceOnUse" width="50" height="50" patternTransform="scale(1.2)">
+                                    <path d="M0 25 Q12.5 0, 25 25 T50 25" stroke="rgba(26, 43, 58, 0.15)" stroke-width="2" fill="none"/>
+                                    <path d="M25 0 Q37.5 25, 50 25 T75 25" stroke="rgba(26, 43, 58, 0.15)" stroke-width="2" fill="none" transform="translate(-25)"/>
+                                     <path d="M0 50 Q12.5 25, 25 50 T50 50" stroke="rgba(26, 43, 58, 0.1)" stroke-width="1.5" fill="none"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#linePatternGold)" />
+                        </svg>
+                    </div>
+                    <p class="text-xs font-almarai text-center mt-1">مثال: نمط أزرق داكن خفيف على خلفية ذهبية.</p>
+
+                    <div class="pattern-sample bg-gray-200 mt-4">
+                         <svg width="100%" height="100%" xmlns="http://www.w3.org/2000/svg">
+                            <defs>
+                                <pattern id="linePatternLightBg" patternUnits="userSpaceOnUse" width="40" height="40" patternTransform="scale(1)">
+                                    <path d="M-10 10 Q10 0, 20 20 T50 30" stroke="rgba(184, 155, 94, 0.1)" stroke-width="2" fill="none"/>
+                                     <path d="M-10 30 Q10 40, 20 20 T50 10" stroke="rgba(184, 155, 94, 0.1)" stroke-width="2" fill="none"/>
+                                </pattern>
+                            </defs>
+                            <rect width="100%" height="100%" fill="url(#linePatternLightBg)" />
+                        </svg>
+                    </div>
+                     <p class="text-xs font-almarai text-center mt-1">مثال: نمط ذهبي خفيف جداً على خلفية فاتحة.</p>
+                </div>
+            </div>
+            <p class="text-sm font-almarai mt-6 bg-blue-50 p-3 rounded-md">
+                <strong>إرشادات استخدام الأنماط:</strong>
+                <ul class="list-disc list-inside text-sm font-almarai space-y-1 mt-2">
+                    <li>يفضل استخدام الأنماط بشفافية منخفضة (opacity) كخلفيات لكي لا تتنافس مع المحتوى.</li>
+                    <li>يمكن استخدام أجزاء من النمط كفواصل أو عناصر زخرفية في التصاميم.</li>
+                    <li>يجب الحفاظ على تناسق الألوان مع لوحة الألوان الأساسية للعلامة التجارية.</li>
+                    <li>تجنب استخدام أنماط متعددة ومختلفة في نفس التصميم لتفادي الإزدحام البصري.</li>
+                </ul>
+            </p>
+        </section>
+
         <section id="tone-of-voice" class="mb-12 p-6 bg-white rounded-lg shadow-lg">
-            <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">5. نبرة الصوت</h2>
+            <h2 class="text-3xl font-bold font-amiri text-brand-dark-blue mb-6 border-b-2 border-brand-gold pb-2">6. نبرة الصوت</h2>
             <ul class="list-disc list-inside text-lg leading-relaxed space-y-2 font-almarai">
                 <li><strong>احترافية وموثوقة.</strong></li>
                 <li><strong>سلطة معرفية.</strong></li>
@@ -424,7 +514,7 @@
 
         <footer class="text-center mt-12 pt-6 border-t border-gray-300">
             <p class="text-sm text-gray-600 font-almarai">&copy; <span id="currentYear"></span> مكتب الحكماء. جميع الحقوق محفوظة.</p>
-            <p class="text-xs text-gray-500 mt-1 font-almarai">دليل الهوية البصرية - الإصدار 1.5 (مُحدَّث بلوحة ألوان موسعة)</p>
+            <p class="text-xs text-gray-500 mt-1 font-almarai">دليل الهوية البصرية - الإصدار 1.6 (مُحدَّث بالأنماط الرسومية)</p>
         </footer>
     </main>
 
@@ -433,3 +523,4 @@
     </script>
 </body>
 </html>
+
