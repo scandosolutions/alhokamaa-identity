@@ -100,6 +100,32 @@
             overflow: hidden; 
             background-repeat: repeat; /* Ensure pattern tiles */
         }
+        .asset-link-button { /* Renamed for clarity */
+            display: inline-block;
+            margin-top: 0.5rem;
+            padding: 0.5rem 1rem;
+            background-color: #B89B5E;
+            color: white !important; /* Ensure text is white */
+            border-radius: 0.375rem;
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: background-color 0.3s ease;
+        }
+        .asset-link-button:hover {
+            background-color: #A48A53;
+        }
+        .asset-link-text { /* Style for the visible URL */
+            display: block;
+            margin-top: 0.5rem;
+            font-size: 0.75rem; /* text-xs */
+            color: #4B5563; /* Tailwind gray-600 */
+            word-break: break-all; /* Prevent long URLs from breaking layout */
+            padding: 0.25rem 0.5rem;
+            background-color: #f3f4f6; /* Tailwind gray-100 */
+            border-radius: 0.25rem;
+            direction: ltr; /* Ensure URL is displayed LTR */
+            text-align: left;
+        }
 
         @media (max-width: 768px) {
             .sidebar {
@@ -137,6 +163,7 @@
             <a href="#brand-mark">   - أيقونة العلامة التجارية</a>
             <a href="#logo-variants">   - نماذج الاستخدام</a>
             <a href="#monochrome-usage">   - استخدام الشعار أحادي اللون</a>
+            <a href="#logo-assets">    - أصول الشعار (تحميل)</a>
             <a href="#logo-clearance">   - مساحة الأمان</a>
             <a href="#logo-min-size">   - الحد الأدنى للحجم</a>
             <a href="#logo-donts">   - الاستخدامات الخاطئة</a>
@@ -262,6 +289,42 @@
                         </p>
                     </div>
                 </div>
+            </div>
+
+            <div id="logo-assets" class="mt-10 pt-6 border-t border-gray-300">
+                <h3 class="text-2xl font-amiri font-semibold text-brand-dark-blue mb-4">أصول الشعار (Logo Assets)</h3>
+                <p class="text-lg leading-relaxed mb-4 font-almarai">
+                    للحصول على ملفات الشعار بجودة عالية، يرجى استخدام الروابط التالية. جميع الملفات بصيغة PNG بخلفية شفافة.
+                </p>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="p-4 border rounded-lg text-center bg-gray-50">
+                        <img src="https://i.ibb.co/XG73DWy/logo-alhokamaa-transparent-light-background.png" alt="شعار للاستخدام على خلفيات فاتحة" class="logo-display mx-auto mb-2" style="max-height: 80px;">
+                        <p class="font-semibold font-almarai text-sm mb-1">شعار (نص أزرق داكن) - للخلفيات الفاتحة</p>
+                        <a href="https://i.ibb.co/XG73DWy/logo-alhokamaa-transparent-light-background.png" target="_blank" class="asset-link-button">تحميل PNG</a>
+                        <code class="asset-link-text">https://i.ibb.co/XG73DWy/logo-alhokamaa-transparent-light-background.png</code>
+                    </div>
+                    <div class="p-4 border rounded-lg text-center bg-brand-dark-blue">
+                        <img src="https://i.ibb.co/RpryZZ3Y/logo-alhokamaa-white-transparent-background.png" alt="شعار للاستخدام على خلفيات داكنة" class="logo-display mx-auto mb-2" style="max-height: 80px;">
+                        <p class="font-semibold font-almarai text-sm mb-1 text-white">شعار (نص أبيض) - للخلفيات الداكنة</p>
+                        <a href="https://i.ibb.co/RpryZZ3Y/logo-alhokamaa-white-transparent-background.png" target="_blank" class="asset-link-button">تحميل PNG</a>
+                        <code class="asset-link-text">https://i.ibb.co/RpryZZ3Y/logo-alhokamaa-white-transparent-background.png</code>
+                    </div>
+                    <div class="p-4 border rounded-lg text-center bg-gray-50">
+                        <img src="https://i.ibb.co/TDg3M5GX/logo-alhokamaa-black-transparent-background.png" alt="شعار أسود بالكامل" class="logo-display mx-auto mb-2" style="max-height: 80px;">
+                        <p class="font-semibold font-almarai text-sm mb-1">شعار (أسود بالكامل) - أحادي اللون</p>
+                        <a href="https://i.ibb.co/TDg3M5GX/logo-alhokamaa-black-transparent-background.png" target="_blank" class="asset-link-button">تحميل PNG</a>
+                        <code class="asset-link-text">https://i.ibb.co/TDg3M5GX/logo-alhokamaa-black-transparent-background.png</code>
+                    </div>
+                    <div class="p-4 border rounded-lg text-center bg-gray-50 md:col-span-2 lg:col-span-1 lg:col-start-2">
+                         <img src="https://i.ibb.co/wF7rLbkG/icon-alhokamaa-transparent-background.png" alt="أيقونة العلامة التجارية" class="icon-display mx-auto mb-2" style="max-height: 80px;">
+                        <p class="font-semibold font-almarai text-sm mb-1">أيقونة العلامة التجارية</p>
+                        <a href="https://i.ibb.co/wF7rLbkG/icon-alhokamaa-transparent-background.png" target="_blank" class="asset-link-button">تحميل PNG</a>
+                        <code class="asset-link-text">https://i.ibb.co/wF7rLbkG/icon-alhokamaa-transparent-background.png</code>
+                    </div>
+                </div>
+                 <p class="text-sm font-almarai mt-4 text-gray-600">
+                    * للحصول على صيغ أخرى (مثل SVG أو AI)، يرجى التواصل مع قسم التسويق أو الجهة المسؤولة عن العلامة التجارية.
+                </p>
             </div>
 
 
@@ -524,7 +587,7 @@
 
         <footer class="text-center mt-12 pt-6 border-t border-gray-300">
             <p class="text-sm text-gray-600 font-almarai">&copy; <span id="currentYear"></span> مكتب الحكماء. جميع الحقوق محفوظة.</p>
-            <p class="text-xs text-gray-500 mt-1 font-almarai">دليل الهوية البصرية - الإصدار 1.11 (مُحدَّث بأنماط إسلامية أكثر كثافة وتفصيلاً)</p>
+            <p class="text-xs text-gray-500 mt-1 font-almarai">دليل الهوية البصرية - الإصدار 1.13 (مُحدَّث بروابط شعارات نصية)</p>
         </footer>
     </main>
 
@@ -533,4 +596,3 @@
     </script>
 </body>
 </html>
-
